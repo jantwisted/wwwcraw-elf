@@ -34,11 +34,11 @@ def tryit():
   print("Checksum:",checksum)
   if _data == checksum:
     result = (data[1510:1514]).decode('iso-8859-2')+(data[1518:1520]).decode('iso-8859-2') 
-    print(result)
+    print("Secret Word:",result)
     result= result.strip('\n')
     new_url = challenge_url + result 
     result = requests.get(new_url, headers=headers)
-    print(re.findall(r'FLAG-\w*', result.text)[0])
+    print("Challenge flag:",re.findall(r'FLAG-\w*', result.text)[0])
     sys.exit(4)
 
   sys.exit(5)
